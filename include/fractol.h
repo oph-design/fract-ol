@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/18 18:14:37 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/19 08:15:08 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ unsigned int	get_rgba_2(int r, int g, int b, int a);
 int				get_b(int rgba);
 int				get_g(int rgba);
 int				get_r(int rgba);
-int				amount(int n);
+double			amount(double n);
 
 #endif

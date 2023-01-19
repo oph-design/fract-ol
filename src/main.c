@@ -6,16 +6,17 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/18 18:15:47 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/19 09:07:29 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+#include <stdio.h>
 
 #define WIDTH 1280
 #define HEIGHT 720
 
-void	calc_c(int x, int y, t_params **p)
+void	calc_c(double x, double y, t_params **p)
 {
 	(*p)->creal = x / WIDTH * (*p)->ranger + (*p)->midr - (*p)->ranger / 2;
 	(*p)->cimag = y / HEIGHT * (*p)->rangei + (*p)->midi - (*p)->rangei / 2;
@@ -37,7 +38,7 @@ t_params	*init_struct(double midr, double midi, double ranger, double rangei)
 	return (new);
 }
 
-int	iterate(double creal, double cimag)
+double	iterate(double creal, double cimag)
 {
 	double	zreal;
 	double	zimag;
@@ -46,7 +47,7 @@ int	iterate(double creal, double cimag)
 	zreal = 0;
 	zimag = 0;
 	i = 0;
-	while (i < 100 && (amount(zreal) + amount(zimag)) < 2)
+	while (i < 1000 && (amount(zreal) + amount(zimag)) < 2)
 	{
 		zreal = zreal * zreal + zimag * zimag + creal;
 		zimag = 2 * zreal * zimag + cimag;
@@ -57,9 +58,9 @@ int	iterate(double creal, double cimag)
 
 void	create_mandelbrot(mlx_image_t *img, t_params *p)
 {
-	int	x;
-	int	y;
-	int	res;
+	int		x;
+	int		y;
+	double	res;
 
 	x = 0;
 	y = 0;
@@ -68,7 +69,7 @@ void	create_mandelbrot(mlx_image_t *img, t_params *p)
 	{
 		while (y < HEIGHT)
 		{
-			calc_c(x, y, &p);
+			calc_c((double)x, (double)y, &p);
 			res = iterate(p->creal, p->cimag);
 			if (res > 2)
 				mlx_put_pixel(img, x, y, 0xFFFFFFFF);

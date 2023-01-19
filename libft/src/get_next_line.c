@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:34:01 by oheinzel          #+#    #+#             */
-/*   Updated: 2022/12/05 15:11:10 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/19 08:41:32 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static char	*get_line(int fd, char *line)
 	{
 		check = read(fd, buffer, BUFFER_SIZE);
 		if (check == -1)
-			return (free(buffer), NULL);
+			return (free(buffer), ft_free(line), NULL);
 		buffer[check] = '\0';
 		if (line == NULL)
 			line = ft_strdup(buffer);

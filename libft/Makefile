@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:57:16 by oheinzel          #+#    #+#              #
-#    Updated: 2022/12/07 16:52:49 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/19 08:51:23 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRC_FILES = 	ft_memset		\
 				ft_printhex		\
 				ft_printf		\
 				get_next_line	\
+				ft_free
 
 #Standard
 

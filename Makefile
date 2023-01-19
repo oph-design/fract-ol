@@ -6,12 +6,12 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/16 13:48:56 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/19 08:57:25 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= #-Wall -Werror -Wextra
 MLXFLAGS	= -lglfw -L "$(HOME)/.brew/opt/glfw/lib"
 NAME 		= fract-ol
 SRC_DIR 	= src/

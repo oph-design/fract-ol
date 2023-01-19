@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 08:14:47 by oheinzel         ###   ########.fr       */
+/*   Created: 2023/01/19 08:39:37 by oheinzel          #+#    #+#             */
+/*   Updated: 2023/01/19 08:50:49 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "libft.h"
 
-int	get_r(int rgba)
+void	ft_free(void *ptr)
 {
-	return ((rgba >> 24) & 0xFF);
-}
-
-int	get_g(int rgba)
-{
-	return ((rgba >> 16) & 0xFF);
-}
-
-int	get_b(int rgba)
-{
-	return ((rgba >> 8) & 0xFF);
-}
-
-double	amount(double n)
-{
-	if (n < 0)
-		n *= -1;
-	return (n);
-}
-
-unsigned int	get_rgba_2(int r, int g, int b, int a)
-{
-	return (r << 24 | g << 16 | b << 8 | a);
+	if (ptr == NULL)
+		return ;
+	free(ptr);
 }
