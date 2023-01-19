@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 08:15:08 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:15:22 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdio.h>
 # include <unistd.h>
 
+# define WIDTH 1920
+# define HEIGHT 1080
+
 typedef struct i_params
 {
 	double	midr;
@@ -29,10 +32,7 @@ typedef struct i_params
 	double	cimag;
 }	t_params;
 
-unsigned int	get_rgba_2(int r, int g, int b, int a);
-int				get_b(int rgba);
-int				get_g(int rgba);
-int				get_r(int rgba);
-double			amount(double n);
+t_params	*init_struct(double midr, double midi, double rngr, double rngi);
+void		calc_c(double x, double y, t_params **p);
 
 #endif

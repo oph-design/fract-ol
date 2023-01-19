@@ -6,35 +6,30 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 08:14:47 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:18:50 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-int	get_r(int rgba)
+void	calc_c(double x, double y, t_params **p)
 {
-	return ((rgba >> 24) & 0xFF);
+	(*p)->creal = x / WIDTH * (*p)->ranger + (*p)->midr - (*p)->ranger / 2;
+	(*p)->cimag = y / HEIGHT * (*p)->rangei + (*p)->midi - (*p)->rangei / 2;
 }
 
-int	get_g(int rgba)
+t_params	*init_struct(double midr, double midi, double rngr, double rngi)
 {
-	return ((rgba >> 16) & 0xFF);
-}
+	t_params	*new;
 
-int	get_b(int rgba)
-{
-	return ((rgba >> 8) & 0xFF);
-}
-
-double	amount(double n)
-{
-	if (n < 0)
-		n *= -1;
-	return (n);
-}
-
-unsigned int	get_rgba_2(int r, int g, int b, int a)
-{
-	return (r << 24 | g << 16 | b << 8 | a);
+	new = malloc(sizeof(t_params));
+	if (!new)
+		return (NULL);
+	new->midr = midr;
+	new->midi = midi;
+	new->rangei = rngi;
+	new->ranger = rngr;
+	new->creal = 0;
+	new->cimag = 0;
+	return (new);
 }

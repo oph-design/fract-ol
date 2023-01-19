@@ -6,17 +6,17 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/19 08:57:25 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/19 16:19:26 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
-CFLAGS		= #-Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra
 MLXFLAGS	= -lglfw -L "$(HOME)/.brew/opt/glfw/lib"
 NAME 		= fract-ol
 SRC_DIR 	= src/
 #OBJ_DIR 	= obj/
-SRC_FILES	= main colors
+SRC_FILES	= main param
 INCLUDE 	= -I include
 
 SRC 	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
