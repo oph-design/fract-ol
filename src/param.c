@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   param.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 16:18:50 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/20 10:59:57 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ t_params	*init_struct(double midr, double midi, double rngr, double rngi)
 	new->ranger = rngr;
 	new->creal = 0;
 	new->cimag = 0;
+	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
+	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
+	new->color = 0;
 	return (new);
 }
