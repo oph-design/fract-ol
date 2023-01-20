@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/20 11:05:02 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:23:58 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	create_mandelbrot(int x, int y, t_params *p)
 	zreal = 0;
 	zimag = 0;
 	calc_c((double)x, (double)y, &p);
-	while (i < 100 && (zreal * zreal + zimag * zimag) < 4)
+	while (i < (int)p->it_max && (zreal * zreal + zimag * zimag) < 4)
 	{
 		tmp = (zreal * zreal) - (zimag * zimag) + p->creal;
 		zimag = zreal * zimag + zreal * zimag + p->cimag;
@@ -70,6 +70,7 @@ int	main(void)
 	params = init_struct(-0.75, 0, 4, 2.35);
 	iterate(params);
 	mlx_key_hook(params->mlx, &my_keyhook, params);
+	mlx_scroll_hook(params->mlx, &my_scrollhook, params);
 	mlx_loop(params->mlx);
 	mlx_terminate(params->mlx);
 	free(params);

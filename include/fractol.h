@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/20 10:34:37 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:24:26 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ typedef struct i_params
 	double		creal;
 	double		cimag;
 	int			color;
+	int			it_max;
 }				t_params;
 
 t_params	*init_struct(double midr, double midi, double rngr, double rngi);
 void		calc_c(double x, double y, t_params **p);
 void		my_keyhook(mlx_key_data_t keydata, void *param);
 void		iterate(t_params *p);
+void		my_scrollhook(double xdelta, double ydelta, void *param);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/20 10:59:57 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:27:06 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ t_params	*init_struct(double midr, double midi, double rngr, double rngi)
 	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
 	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
 	new->color = 0;
+	new->it_max = 100;
 	return (new);
 }
