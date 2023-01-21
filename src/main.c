@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/20 15:23:58 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:42:00 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(void)
 {
 	t_params	*params;
 
-	params = init_struct(-0.75, 0, 4, 2.35);
+	params = init_struct(-0.75, 0, 4, 2.25);
 	iterate(params);
 	mlx_key_hook(params->mlx, &my_keyhook, params);
 	mlx_scroll_hook(params->mlx, &my_scrollhook, params);
