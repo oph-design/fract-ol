@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/20 15:24:26 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/21 11:33:51 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct i_params
 	double		rangei;
 	double		creal;
 	double		cimag;
+	double		zoom;
 	int			color;
 	int			it_max;
 }				t_params;
