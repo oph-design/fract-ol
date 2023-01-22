@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/22 19:19:13 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/22 20:20:20 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,52 +45,26 @@ void	loop_hook(void *param)
 	iterate(p);
 }
 
-// void	scroll_to_mouse(t_params *p)
-// {
-// 	double	minr;
-// 	double	maxr;
-// 	double	mini;
-// 	double	maxi;
-// 	double	z;
-
-// 	z = 1.0 / 0.95;
-// 	minr = p->creal + ((p->ranger / -2 - p->midr) - p->creal) * z;
-// 	printf("%lf\n", minr);
-// 	maxr = p->creal + ((p->ranger / 2 - p->midr) - p->creal) * z;
-// 	printf("%lf\n", maxr);
-// 	p->midr = (minr + maxr) / 2;
-// 	printf("%lf\n", p->midr);
-// 	mini = p->cimag + ((p->ranger / -2 - p->midi) - p->cimag) * z;
-// 	printf("%lf\n", mini);
-// 	maxi = p->cimag + ((p->ranger / 2 - p->midi) - p->cimag) * z;
-// 	printf("%lf\n", maxi);
-// 	p->midi = (mini + maxi) / 2;
-// 	printf("%lf\n", p->midi);
-// }
-
 void	my_scrollhook(double xdelta, double ydelta, void *param)
 {
 	t_params	*p;
 	int32_t		x;
 	int32_t		y;
+	double		prevx;
+	double		prevy;
 
 	(void) xdelta;
 	p = param;
+	mlx_get_mouse_pos(p->mlx, &x, &y);
+	calc_c(x, y, p);
+	prevx = p->creal;
+	prevy = p->cimag;
 	if (ydelta > 0)
 		p->zoom = p->zoom * 0.95;
 	else if (ydelta < 0)
 		p->zoom = p->zoom / 0.95;
-	mlx_get_mouse_pos(p->mlx, &x, &y);
-	// calc_c(x, y, p);
-	// scroll_to_mouse(p);
+	calc_c(x, y, p);
+	p->midr += prevx - p->creal;
+	p->midi += prevy - p->cimag;
 	iterate(p);
 }
-
-	// if (p->creal > 0)
-	// 	p->midr = p->midr - (p->creal * p->zoom * 0.05);
-	// else
-	// 	p->midr = p->midr + (p->creal * p->zoom * 0.05);
-	// if (p->cimag > 0)
-	// 	p->midi = p->midi - (p->cimag * p->zoom * 0.05);
-	// else
-	// 	p->midi = p->midi + (p->cimag * p->zoom * 0.05);
