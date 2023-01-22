@@ -6,16 +6,19 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/21 11:38:40 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/22 14:20:56 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-void	calc_c(double x, double y, t_params **p)
+void	calc_c(double x, double y, t_params *p)
 {
-	(*p)->creal = x / WIDTH * (*p)->ranger + (*p)->midr - (*p)->ranger / 2;
-	(*p)->cimag = y / HEIGHT * (*p)->rangei + (*p)->midi - (*p)->rangei / 2;
+	double	z;
+
+	z = p->zoom;
+	p->creal = x / WIDTH * p->ranger * z + p->midr - p->ranger * z / 2;
+	p->cimag = y / HEIGHT * p->rangei * z + p->midi - p->rangei * z / 2;
 }
 
 t_params	*init_struct(double midr, double midi, double rngr, double rngi)
