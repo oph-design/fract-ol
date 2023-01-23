@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/22 14:20:56 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:28:35 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,20 @@ void	calc_c(double x, double y, t_params *p)
 	p->cimag = y / HEIGHT * p->rangei * z + p->midi - p->rangei * z / 2;
 }
 
-t_params	*init_struct(double midr, double midi, double rngr, double rngi)
+t_params	*init_struct(double midr, char id, double rngr, double rngi)
 {
 	t_params	*new;
 
 	new = malloc(sizeof(t_params));
 	if (!new)
 		return (NULL);
+	new->fr = &create_mandelbrot;
+	if (id == 'j')
+		new->fr = &create_julia;
+	if (id == 'b')
+		new->fr = &create_bship;
 	new->midr = midr;
-	new->midi = midi;
+	new->midi = 0;
 	new->rangei = rngi;
 	new->ranger = rngr;
 	new->creal = 0;

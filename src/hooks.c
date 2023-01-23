@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/22 20:20:20 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/22 21:21:38 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	loop_hook(void *param)
 	if (mlx_is_key_down(p->mlx, MLX_KEY_RIGHT))
 		color_shift(p, -1);
 	if (mlx_is_key_down(p->mlx, MLX_KEY_UP))
-		p->it_max += 10;
+		p->it_max += 1;
 	if (mlx_is_key_down(p->mlx, MLX_KEY_DOWN))
-		p->it_max -= 10;
+		p->it_max -= 1;
 	iterate(p);
 }
 

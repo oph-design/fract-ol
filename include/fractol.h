@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/22 20:20:34 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:28:56 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 
-typedef struct i_params
+typedef struct s_params
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img;
+	void		(*fr)(int x, int y, void *p);
 	double		midr;
 	double		midi;
 	double		ranger;
@@ -37,10 +38,13 @@ typedef struct i_params
 	int			it_max;
 }				t_params;
 
-t_params	*init_struct(double midr, double midi, double rngr, double rngi);
+t_params	*init_struct(double midr, char i, double rngr, double rngi);
 void		calc_c(double x, double y, t_params *p);
 void		iterate(t_params *p);
 void		my_scrollhook(double xdelta, double ydelta, void *param);
 void		loop_hook(void *param);
+void		create_mandelbrot(int x, int y, void *param);
+void		create_julia(int x, int y, void *param);
+void		create_bship(int x, int y, void *param);
 
 #endif
