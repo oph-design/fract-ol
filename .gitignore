@@ -29,7 +29,7 @@
 *.dylib
 
 # Executables
-fract-ol
+fractol
 *.exe
 *.out
 *.app

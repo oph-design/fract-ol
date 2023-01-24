@@ -6,15 +6,24 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 11:13:55 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:32:53 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
+void	color_shift(t_param *p, int factor)
+{
+	p->color = p->color + 1 * factor;
+	if (p->color > 16 && factor > 0)
+			p->color = 0;
+	if (p->color < 0 && factor < 0)
+			p->color = 16;
+}
+
 void	loop_hook(void *param)
 {
-	t_params	*p;
+	t_param	*p;
 
 	p = param;
 	if (mlx_is_key_down(p->mlx, MLX_KEY_W))
@@ -40,24 +49,24 @@ void	loop_hook(void *param)
 
 void	my_scrollhook(double xdelta, double ydelta, void *param)
 {
-	t_params	*p;
-	int32_t		x;
-	int32_t		y;
-	double		prevx;
-	double		prevy;
+	t_param	*p;
+	int32_t	x;
+	int32_t	y;
+	double	prevx;
+	double	prevy;
 
 	(void) xdelta;
 	p = param;
 	mlx_get_mouse_pos(p->mlx, &x, &y);
 	calc_c(x, y, p);
-	prevx = p->creal;
-	prevy = p->cimag;
+	prevx = p->cords[0];
+	prevy = p->cords[1];
 	if (ydelta > 0)
 		p->zoom = p->zoom * 0.95;
 	else if (ydelta < 0)
 		p->zoom = p->zoom / 0.95;
 	calc_c(x, y, p);
-	p->midr += prevx - p->creal;
-	p->midi += prevy - p->cimag;
+	p->midr += prevx - p->cords[0];
+	p->midi += prevy - p->cords[1];
 	iterate(p);
 }

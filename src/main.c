@@ -6,18 +6,29 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 11:21:28 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:33:12 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-#include <stdio.h>
 
-t_params	*init_struct(double midr, double midi, double rngr, double rngi)
+void	wrong_input(void)
 {
-	t_params	*new;
+	ft_putendl_fd("\033[0;31mERROR: Wrong Input entered\033[0m", 2);
+	ft_putendl_fd("\033[0;97mExecute with following Options:", 2);
+	ft_putendl_fd("\033[0;97m* ./fract-ol [fractal] [consts]", 2);
+	ft_putendl_fd("\033[0;97m* [fractal] can have the following values:", 2);
+	ft_putendl_fd("\033[0;97m* mandelbrot | burning_ship | julia", 2);
+	ft_putendl_fd("* if the option is 'julia' you have to specify [constn]", 2);
+	ft_putendl_fd("* [constn] can have any value between 1 and 6 ", 2);
+	exit(1);
+}
 
-	new = malloc(sizeof(t_params));
+t_param	*init_struct(double midr, double midi, double rngr, double rngi)
+{
+	t_param	*new;
+
+	new = malloc(sizeof(t_param));
 	if (!new)
 		return (NULL);
 	if (midr == -0.75)
@@ -30,28 +41,37 @@ t_params	*init_struct(double midr, double midi, double rngr, double rngi)
 	new->midi = midi;
 	new->rangei = rngi;
 	new->ranger = rngr;
-	new->creal = 0;
-	new->cimag = 0;
-	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
+	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ole", true);
 	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
 	new->zoom = 1;
 	new->color = 0;
+	if (midr == -0.4)
+		new->color = 16;
 	new->it_max = 100;
 	return (new);
 }
 
-void	wrong_input(void)
+t_param	*init_julia(char *argv[])
 {
-	ft_putendl_fd("\033[0;31mERROR: Wrong Input entered\033[0m", 2);
-	ft_putendl_fd("\033[0;97mExecute with following Options:", 2);
-	ft_putendl_fd("\033[0;97m* ./fract-ol [fractal] [constx] [consty]", 2);
-	ft_putendl_fd("\033[0;97m* [fractal] can have the following values:", 2);
-	ft_putendl_fd("\033[0;97m* mandelbrot | burning_ship | julia", 2);
-	ft_putendl_fd("* if the option is 'julia' you have to specify [constn]", 2);
-	exit(1);
+	t_param			*new;
+	const double	x[6] = {-1, -0.8, -0.6, -0.4, -0.2, 0};
+	const double	y[6] = {1, 0.8, 0.6, 0.4, 0.2, 0};
+
+	if (ft_strlen(argv[2]) > 1 || !ft_isdigit(argv[2][0])
+		|| ft_strlen(argv[3]) > 1 || !ft_isdigit(argv[2][0])
+		|| ft_atoi(argv[2]) > 6 || ft_atoi(argv[3]) > 6
+		|| ft_atoi(argv[2]) < 1 || ft_atoi(argv[3]) < 1)
+		wrong_input();
+	new = init_struct(0, 0, 4, 2.25);
+	if (new == NULL)
+		return (NULL);
+	new->consts[0] = x[ft_atoi(argv[2]) - 1];
+	new->consts[1] = y[ft_atoi(argv[3]) - 1];
+	new->color = 8;
+	return (new);
 }
 
-t_params	*input(int argc, char *argv[])
+t_param	*input(int argc, char *argv[])
 {
 	if (argc < 2 || (!ft_strncmp(argv[1], "julia", 5) && argc != 4))
 		wrong_input();
@@ -61,34 +81,24 @@ t_params	*input(int argc, char *argv[])
 	if (!ft_strncmp(argv[1], "mandelbrot", 10))
 		return (init_struct(-0.75, 0, 4, 2.25));
 	if (!ft_strncmp(argv[1], "julia", 5))
-		return (init_struct(0, 0, 4, 2.25));
-	if (!ft_strncmp(argv[argc - 1], "burning_ship", 12))
-		return (init_struct(-0.4, -0.6, 5, 2.5));
+		return (init_julia(argv));
+	if (!ft_strncmp(argv[1], "burning_ship", 12))
+		return (init_struct(-0.4, -0.6, 4.4, 2.5));
 	return (NULL);
-}
-
-void	ft_exit(t_params *p)
-{
-	mlx_t	*mlx;
-
-	mlx = p->mlx;
-	free(p);
-	mlx_terminate(mlx);
-	exit(0);
 }
 
 int	main(int argc, char *argv[])
 {
-	t_params	*params;
+	t_param	*param;
 
-	params = input(argc, argv);
-	if (params == NULL)
+	param = input(argc, argv);
+	if (param == NULL)
 		return (ft_putendl_fd("\033[0;31mERROR: failed to create mlx", 2), 1);
-	mlx_set_window_limit(params->mlx, WIDTH, HEIGHT, WIDTH, HEIGHT);
-	iterate(params);
-	mlx_loop_hook(params->mlx, &loop_hook, params);
-	mlx_scroll_hook(params->mlx, &my_scrollhook, params);
-	mlx_loop(params->mlx);
-	ft_exit(params);
+	mlx_set_window_limit(param->mlx, WIDTH, HEIGHT, WIDTH, HEIGHT);
+	iterate(param);
+	mlx_loop_hook(param->mlx, &loop_hook, param);
+	mlx_scroll_hook(param->mlx, &my_scrollhook, param);
+	mlx_loop(param->mlx);
+	ft_exit(param);
 	return (EXIT_SUCCESS);
 }

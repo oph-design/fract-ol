@@ -6,14 +6,14 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/24 10:53:52 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/24 14:37:03 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
 CFLAGS		= -g -Wall -Werror -Wextra
 MLXFLAGS	= -lglfw -L "$(HOME)/.brew/opt/glfw/lib"
-NAME 		= fract-ol
+NAME 		= fractol
 SRC_DIR 	= src/
 #OBJ_DIR 	= obj/
 SRC_FILES	= main utils hooks fractals
