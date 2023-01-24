@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 11:05:04 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:08:04 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int argc, char *argv[])
 	mlx_loop_hook(params->mlx, &loop_hook, params);
 	mlx_scroll_hook(params->mlx, &my_scrollhook, params);
 	mlx_loop(params->mlx);
-	mlx_terminate(params->mlx);
 	free(params);
+	mlx_terminate(params->mlx);
 	return (EXIT_SUCCESS);
 }
