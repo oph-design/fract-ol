@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 11:05:34 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:13:55 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	loop_hook(void *param)
 		p->it_max += 1;
 	if (mlx_is_key_down(p->mlx, MLX_KEY_DOWN))
 		p->it_max -= 1;
+	if (mlx_is_key_down(p->mlx, MLX_KEY_ESCAPE))
+		ft_exit(p);
 	iterate(p);
 }
 

@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 11:07:00 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:13:07 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void		color_shift(t_params *p, int factor);
 void		loop_hook(void *param);
 void		iterate(t_params *p);
 double		ft_abs(double x);
+void		ft_exit(t_params *p);
 
 #endif
