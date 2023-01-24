@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:46:56 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:10:43 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	wrong_input(void)
 {
-	ft_putendl_fd("\033[0;31mERROR: Wrong Input entered\033[0m", 2);
+	ft_putendl_fd("\033[0;31mERROR: Wrong Input entered", 2);
 	ft_putendl_fd("\033[0;97mExecute with following Options:", 2);
-	ft_putendl_fd("\033[0;97m* ./fract-ol [fractal] [consts]", 2);
-	ft_putendl_fd("\033[0;97m* [fractal] can have the following values:", 2);
-	ft_putendl_fd("\033[0;97m* mandelbrot | burning_ship | julia", 2);
-	ft_putendl_fd("* if the option is 'julia' you have to specify [constn]", 2);
-	ft_putendl_fd("* [constn] can have any value between 1 and 6 ", 2);
+	ft_putendl_fd("* ./fract-ol [fractal] [constx] [consty]", 2);
+	ft_putendl_fd("* [fractal] can have the following values:", 2);
+	ft_putendl_fd("* mandelbrot | burning_ship | julia", 2);
+	ft_putendl_fd("* if the option is 'julia' you have to specify", 2);
+	ft_putendl_fd("* [constn] with any value between 1 and 6 ", 2);
+	ft_putendl_fd("* [constn]  1   2    3    4    5   6 ", 2);
+	ft_putendl_fd("* [constx] -1 -0.8 -0.6 -0.4 -0.2  0", 2);
+	ft_putendl_fd("* [constx]  1  0.8  0.6  0.4  0.2  0\033[0m", 2);
 	exit(1);
 }
 
@@ -29,7 +32,7 @@ t_param	*init_struct(double midr, double midi, double rngr, double rngi)
 	t_param	*new;
 
 	new = malloc(sizeof(t_param));
-	if (!new)
+	if (new == NULL)
 		return (NULL);
 	if (midr == -0.75)
 		new->fr = &create_mandelbrot;
@@ -73,16 +76,17 @@ t_param	*init_julia(char *argv[])
 
 t_param	*input(int argc, char *argv[])
 {
-	if (argc < 2 || (!ft_strncmp(argv[1], "julia", 5) && argc != 4))
+	if (argc < 2 || (!ft_strncmp(argv[1], "julia", 6) && argc != 4)
+		|| (ft_strncmp(argv[1], "julia", 6) && argc != 2))
 		wrong_input();
-	if (ft_strncmp(argv[1], "julia", 5) && ft_strncmp(argv[1], "mandelbrot", 10)
-		&& ft_strncmp(argv[1], "burning_ship", 12))
+	if (ft_strncmp(argv[1], "julia", 6) && ft_strncmp(argv[1], "mandelbrot", 11)
+		&& ft_strncmp(argv[1], "burning_ship", 13))
 		wrong_input();
-	if (!ft_strncmp(argv[1], "mandelbrot", 10))
+	if (!ft_strncmp(argv[1], "mandelbrot", 11))
 		return (init_struct(-0.75, 0, 4, 2.25));
-	if (!ft_strncmp(argv[1], "julia", 5))
+	if (!ft_strncmp(argv[1], "julia", 6))
 		return (init_julia(argv));
-	if (!ft_strncmp(argv[1], "burning_ship", 12))
+	if (!ft_strncmp(argv[1], "burning_ship", 13))
 		return (init_struct(-0.4, -0.6, 4.4, 2.5));
 	return (NULL);
 }
@@ -93,7 +97,7 @@ int	main(int argc, char *argv[])
 
 	param = input(argc, argv);
 	if (param == NULL)
-		return (ft_putendl_fd("\033[0;31mERROR: failed to create mlx", 2), 1);
+		return (ft_putendl_fd("fractol: failed to create mlx", 2), 1);
 	mlx_set_window_limit(param->mlx, WIDTH, HEIGHT, WIDTH, HEIGHT);
 	iterate(param);
 	mlx_loop_hook(param->mlx, &loop_hook, param);
