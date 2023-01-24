@@ -6,11 +6,11 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 16:14:15 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:43:27 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 void	color_shift(t_param *p, int factor)
 {

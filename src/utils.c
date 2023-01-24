@@ -6,11 +6,11 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 10:21:47 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:48:02 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:43:35 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 uint32_t	get_color(int red, int green, int blue)
 {

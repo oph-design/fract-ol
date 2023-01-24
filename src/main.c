@@ -6,11 +6,11 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 16:10:43 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:43:31 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "fractol.h"
 
 void	wrong_input(void)
 {

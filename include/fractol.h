@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 17:21:17 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:43:14 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void		color_pixel(t_param *p, int x, int y, int i);
 void		color_shift(t_param *p, int factor);
 void		loop_hook(void *param);
 void		iterate(t_param *p);
-double		ft_abs(double x);
 void		ft_exit(t_param *p);
+double		ft_abs(double x);
 uint32_t	get_color(int red, int green, int blue);
 
 #endif
