@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 10:21:47 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:34:47 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 15:48:02 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ void	ft_exit(t_param *p)
 	mlx = p->mlx;
 	free(p);
 	mlx_terminate(mlx);
-	system("leaks fractol");
 	exit(0);
 }
