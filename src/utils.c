@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   param.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 13:43:23 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:28:35 by oheinzel         ###   ########.fr       */
+/*   Created: 2023/01/24 10:21:47 by oheinzel          #+#    #+#             */
+/*   Updated: 2023/01/24 11:06:00 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+
+double	ft_abs(double x)
+{
+	if (x < 0)
+		x *= -1;
+	return (x);
+}
 
 void	calc_c(double x, double y, t_params *p)
 {
@@ -21,28 +28,22 @@ void	calc_c(double x, double y, t_params *p)
 	p->cimag = y / HEIGHT * p->rangei * z + p->midi - p->rangei * z / 2;
 }
 
-t_params	*init_struct(double midr, char id, double rngr, double rngi)
+void	color_shift(t_params *p, int factor)
 {
-	t_params	*new;
+	p->color = p->color + 8 * factor;
+	if (p->color > 16 && factor > 0)
+			p->color = 0;
+	if (p->color < 0 && factor < 0)
+			p->color = 16;
+}
 
-	new = malloc(sizeof(t_params));
-	if (!new)
-		return (NULL);
-	new->fr = &create_mandelbrot;
-	if (id == 'j')
-		new->fr = &create_julia;
-	if (id == 'b')
-		new->fr = &create_bship;
-	new->midr = midr;
-	new->midi = 0;
-	new->rangei = rngi;
-	new->ranger = rngr;
-	new->creal = 0;
-	new->cimag = 0;
-	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ol", true);
-	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
-	new->zoom = 1;
-	new->color = 0;
-	new->it_max = 100;
-	return (new);
+void	color_pixel(t_params *p, int x, int y, int i)
+{
+	uint32_t	c;
+
+	if (i == 0)
+		i = 1;
+	c = 255 / i * 10;
+	c = (c << p->color << 8) + 255;
+	mlx_put_pixel(p->img, x, y, c);
 }

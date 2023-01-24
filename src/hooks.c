@@ -6,20 +6,11 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/22 21:21:38 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:05:34 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-
-void	color_shift(t_params *p, int factor)
-{
-	p->color = p->color + 8 * factor;
-	if (p->color > 16 && factor > 0)
-			p->color = 0;
-	if (p->color < 0 && factor < 0)
-			p->color = 16;
-}
 
 void	loop_hook(void *param)
 {

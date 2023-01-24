@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/23 16:28:56 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:07:00 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ typedef struct s_params
 	int			it_max;
 }				t_params;
 
-t_params	*init_struct(double midr, char i, double rngr, double rngi);
-void		calc_c(double x, double y, t_params *p);
-void		iterate(t_params *p);
+t_params	*init_struct(double midr, double midi, double rngr, double rngi);
 void		my_scrollhook(double xdelta, double ydelta, void *param);
-void		loop_hook(void *param);
 void		create_mandelbrot(int x, int y, void *param);
 void		create_julia(int x, int y, void *param);
 void		create_bship(int x, int y, void *param);
+void		calc_c(double x, double y, t_params *p);
+void		color_pixel(t_params *p, int x, int y, int i);
+void		color_shift(t_params *p, int factor);
+void		loop_hook(void *param);
+void		iterate(t_params *p);
+double		ft_abs(double x);
 
 #endif

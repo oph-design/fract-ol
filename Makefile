@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/23 14:44:19 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/24 10:53:52 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ MLXFLAGS	= -lglfw -L "$(HOME)/.brew/opt/glfw/lib"
 NAME 		= fract-ol
 SRC_DIR 	= src/
 #OBJ_DIR 	= obj/
-SRC_FILES	= main param hooks fractals
+SRC_FILES	= main utils hooks fractals
 INCLUDE 	= -I include
 
 SRC 	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
