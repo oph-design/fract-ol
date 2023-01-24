@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 08:02:35 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:32:53 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:14:15 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	my_scrollhook(double xdelta, double ydelta, void *param)
 	prevx = p->cords[0];
 	prevy = p->cords[1];
 	if (ydelta > 0)
-		p->zoom = p->zoom * 0.95;
+		p->zoom = p->zoom * 0.80;
 	else if (ydelta < 0)
-		p->zoom = p->zoom / 0.95;
+		p->zoom = p->zoom / 0.80;
 	calc_c(x, y, p);
 	p->midr += prevx - p->cords[0];
 	p->midi += prevy - p->cords[1];
