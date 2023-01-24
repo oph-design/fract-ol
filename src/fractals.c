@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 09:57:25 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:31:48 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:21:43 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	create_mandelbrot(int x, int y, void *param)
 	double		tmp;
 	double		zimag;
 	int			i;
-	t_param	*p;
+	t_param		*p;
 
 	i = 0;
 	zreal = 0;
@@ -61,7 +61,7 @@ void	create_julia(int x, int y, void *param)
 	double		tmp;
 	double		zimag;
 	int			i;
-	t_param	*p;
+	t_param		*p;
 
 	i = 0;
 	p = param;
@@ -87,7 +87,7 @@ void	create_bship(int x, int y, void *param)
 	double		tmp;
 	double		zimag;
 	int			i;
-	t_param	*p;
+	t_param		*p;
 
 	i = 0;
 	p = param;

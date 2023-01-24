@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/14 15:57:16 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/19 08:51:23 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/01/11 10:55:10 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_FILES = 	ft_memset		\
 				ft_strdup		\
 				ft_substr		\
 				ft_strjoin	 	\
+				ft_strjoin_alt	\
 				ft_strtrim		\
 				ft_split		\
 				ft_itoa			\
@@ -58,7 +59,10 @@ SRC_FILES = 	ft_memset		\
 				ft_printhex		\
 				ft_printf		\
 				get_next_line	\
-				ft_free
+				ft_free_arr		\
+				ft_swap			\
+				ft_arr_len		\
+				ft_strtrim_alt	\
 
 #Standard
 

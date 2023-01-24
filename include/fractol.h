@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 16:11:17 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:21:17 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@
 
 typedef struct s_param
 {
-	mlx_t		*mlx;
-	mlx_image_t	*img;
-	void		(*fr)(int x, int y, void *p);
-	double		midr;
-	double		midi;
-	double		ranger;
-	double		rangei;
-	double		cords[2];
-	double		consts[2];
-	double		zoom;
-	int			color;
-	int			it_max;
-}				t_param;
+	mlx_t			*mlx;
+	mlx_image_t		*img;
+	double			midr;
+	double			midi;
+	double			ranger;
+	double			rangei;
+	double			cords[2];
+	double			consts[2];
+	double			zoom;
+	int				color;
+	int				it_max;
+	void			(*fr)(int x, int y, void *p);
+}					t_param;
 
 t_param		*init_struct(double midr, double midi, double rngr, double rngi);
 void		my_scrollhook(double xdelta, double ydelta, void *param);

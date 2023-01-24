@@ -6,39 +6,11 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:34:01 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 08:41:32 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/05 14:18:01 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*gnl_strjoin(char *s1, char *s2)
-{
-	char	*res;
-	size_t	i;
-	size_t	len;
-	size_t	len_s1;
-	size_t	j;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len = len_s1 + ft_strlen(s2) + 1;
-	res = malloc(len * sizeof(char));
-	if (!res)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (i < len)
-	{
-		if (i < len_s1)
-			res[i] = s1[i];
-		else
-			res[i] = s2[j++];
-		i++;
-	}
-	return (free(s1), res);
-}
 
 static char	*new_line(char *line)
 {
@@ -101,12 +73,12 @@ static char	*get_line(int fd, char *line)
 	{
 		check = read(fd, buffer, BUFFER_SIZE);
 		if (check == -1)
-			return (free(buffer), ft_free(line), NULL);
+			return (free(buffer), NULL);
 		buffer[check] = '\0';
 		if (line == NULL)
 			line = ft_strdup(buffer);
 		else
-			line = gnl_strjoin(line, buffer);
+			line = ft_strjoin_alt(line, buffer);
 		if (ft_strchr(line, '\n') != NULL)
 			check = 0;
 	}

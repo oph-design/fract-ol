@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 08:39:37 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/19 08:50:49 by oheinzel         ###   ########.fr       */
+/*   Created: 2023/01/10 16:38:34 by oheinzel          #+#    #+#             */
+/*   Updated: 2023/01/10 16:41:38 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free(void *ptr)
+void	ft_swap(char *str, char a, char b)
 {
-	if (ptr == NULL)
+	int	i;
+
+	if (str == NULL)
 		return ;
-	free(ptr);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == a)
+			str[i] = b;
+		i++;
+	}
 }
