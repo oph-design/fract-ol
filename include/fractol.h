@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:25:33 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/24 15:31:26 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:11:17 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_param
 	int			it_max;
 }				t_param;
 
-t_param	*init_struct(double midr, double midi, double rngr, double rngi);
+t_param		*init_struct(double midr, double midi, double rngr, double rngi);
 void		my_scrollhook(double xdelta, double ydelta, void *param);
 void		create_mandelbrot(int x, int y, void *param);
 void		create_julia(int x, int y, void *param);
