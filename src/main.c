@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/25 10:12:07 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/01/25 10:33:25 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	wrong_input(void)
 {
 	ft_putendl_fd("\033[0;31mERROR: Wrong Input entered", 2);
 	ft_putendl_fd("\033[0;97mExecute with following Options:", 2);
-	ft_putendl_fd("* ./fract-ol [fractal] [constx] [consty]", 2);
+	ft_putendl_fd("* ./fractol [fractal] [constx] [consty]", 2);
 	ft_putendl_fd("* [fractal] can have the following values:", 2);
 	ft_putendl_fd("* mandelbrot | burning_ship | julia", 2);
 	ft_putendl_fd("* if the option is 'julia' you have to specify", 2);
@@ -34,6 +34,9 @@ t_param	*init_struct(double midr, double midi, double rngr, double rngi)
 	new = malloc(sizeof(t_param));
 	if (new == NULL)
 		return (NULL);
+	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ole", true);
+	if (new->mlx == NULL)
+		return (NULL);
 	if (midr == -0.75)
 		new->fr = &create_mandelbrot;
 	if (midr == 0)
@@ -44,7 +47,6 @@ t_param	*init_struct(double midr, double midi, double rngr, double rngi)
 	new->midi = midi;
 	new->rangei = rngi;
 	new->ranger = rngr;
-	new->mlx = mlx_init(WIDTH, HEIGHT, "fract-ole", true);
 	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
 	new->zoom = 1;
 	new->color = 0;
