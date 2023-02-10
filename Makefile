@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/02/10 11:05:28 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/02/10 11:10:10 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJF	= .cache_exists
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(MLX42) $(OBJ)
-	@$(CC) $(LINK_FLAGS) $(OBJ) $(INCLUDE) $(MLX42) $(LIBFT) -o $(NAME) $(MLXFLAGS)
+	@$(CC) $(CFLAGS) $(OBJ) $(INCLUDE) $(MLX42) $(LIBFT) -o $(NAME) $(MLXFLAGS)
 	@echo "$(GREEN)fractol compiled!$(WHITE)"
 
 $(LIBFT):
