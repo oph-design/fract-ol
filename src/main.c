@@ -6,7 +6,7 @@
 /*   By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 11:23:02 by oheinzel          #+#    #+#             */
-/*   Updated: 2023/01/25 11:26:11 by oheinzel         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:02:41 by oheinzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ t_param	*init_struct(double midr, double midi, double rngr, double rngi)
 	new->img = mlx_new_image(new->mlx, WIDTH, HEIGHT);
 	new->zoom = 1;
 	new->color = 0;
-	if (midr == -0.4)
-		new->color = 16;
 	new->it_max = 100;
 	return (new);
 }
@@ -72,7 +70,6 @@ t_param	*init_julia(char *argv[])
 		return (NULL);
 	new->consts[0] = x[ft_atoi(argv[2]) - 1];
 	new->consts[1] = y[ft_atoi(argv[3]) - 1];
-	new->color = 8;
 	return (new);
 }
 

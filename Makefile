@@ -6,7 +6,7 @@
 #    By: oheinzel <oheinzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/21 16:11:05 by oheinzel          #+#    #+#              #
-#    Updated: 2023/01/25 10:20:46 by oheinzel         ###   ########.fr        #
+#    Updated: 2023/02/10 11:05:28 by oheinzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE 	= -I include
 SRC 	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 	= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 LIBFT 	= ./libft/libft.a
-MLX42 	= ./MLX42/libmlx42.a
+MLX42 	= ./MLX42/build/libmlx42.a
 
 GREEN	= \033[0;32m
 CYAN	= \033[0;36m
@@ -42,7 +42,8 @@ $(LIBFT):
 
 $(MLX42):
 	@git clone https://github.com/codam-coding-college/MLX42.git
-	@make -C MLX42
+	@cd MLX42 && cmake -B build
+	@cd MLX42 && cmake --build build -j4
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 	@echo "$(CYAN)Compiling $(WHITE): $<"
