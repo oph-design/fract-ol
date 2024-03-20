@@ -4,7 +4,7 @@
 
 
 
-<h3 align="center">Fractol</h3>
+<h1 align="center">Fractol</h1>
 <p align="center">
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/oph-design/fract-ol?color=lightblue" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/oph-design/fract-ol?color=yellow" />
@@ -62,12 +62,12 @@ As installing make and compilers in windows can be quite tedious. You can find a
 ### Prerequisites
 
 You need to have make, gcc and the glfw library installed. For mac you need also brew and xcode to perform the instalaltion
-* linux
+* linux (Debian based)
   ```sh
   sudo apt install build-essential
   sudo apt-get install libglfw3
   ```
-* linux
+* MAC-OS
   ```sh
   brew install glfw
   xcode-select --install
