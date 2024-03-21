@@ -9,7 +9,7 @@
 	<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/oph-design/fract-ol?color=lightblue" />
 	<img alt="Code language count" src="https://img.shields.io/github/languages/count/oph-design/fract-ol?color=yellow" />
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/oph-design/fract-ol?color=blue" />
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/oph-design/fract-ol?color=green" />
+	<img alt="GitHub last commit" src="https://img.shields.io/github/created-at/oph-design/fract-ol?color=green" />
 </p>
 
 
@@ -31,7 +31,6 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#examples">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -49,19 +48,17 @@ A fractal is a mathematical formular that is intended to be used recursively, me
 The result is lower than 2 -> the point gets colored black </br>
 The result is above 2 -> the point gets colored based on the number of iterations it took to get above 2
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 The following contains a description of how to use the program. It is recommend to run in an unix (linux or mac) environment.
-As installing make and compilers in windows can be quite tedious. You can find a tutorial and setting up an ubuntu vertual machine <a href="https://www.linkedin.com/pulse/how-install-ubuntu-virtualbox-md-emamul-mursalin/">here</a>
+As installing make and compilers in windows can be quite tedious. You can find a tutorial and setting up an ubuntu virtual machine <a href="https://www.linkedin.com/pulse/how-install-ubuntu-virtualbox-md-emamul-mursalin/">here</a>
 
 ### Prerequisites
 
-You need to have make, gcc and the glfw library installed. For mac you need also brew and xcode to perform the instalaltion
+You need to have make, gcc and the glfw library installed. For mac you need also brew and xcode to perform the installation.
 * linux (Debian based)
   ```sh
   sudo apt install build-essential
@@ -88,8 +85,6 @@ You need to have make, gcc and the glfw library installed. For mac you need also
    echo "alias fractol=\"path-to-executable\"" >> $HOME/.zshrc
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
@@ -108,9 +103,7 @@ After start the program generates the pictures, there you can navigate like this
   * Use `LEFT` and `RIGHT` arrows to change the color sceme
 
 Instead of `mandelbrot` you can also use `julia` or `burning_ship` as parameters. </br>
-The `julia` paramater forces you to provide 2 additional number paramaters bewteen 1 and 6 to render specific versions of that fractol.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+The `julia` paramater forces you to provide 2 additional number paramaters between 1 and 6 to render specific versions of that fractal.
 
 
 
@@ -140,15 +133,16 @@ The `julia` paramater forces you to provide 2 additional number paramaters bewte
 
 <img width="1477" alt="Screen Shot 2024-03-20 at 4 53 48 PM" src="https://github.com/oph-design/fract-ol/assets/115570424/9d1a70f4-f4ed-4b19-9994-bcce71a471a4">
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- CONTACT -->
 ## Contact
 
-Ole-Paul Heinzelmann - <a href="https://www.linkedin.com/in/ole-paul-heinzelmann-a08304258/">linkedIn</a> - ole.paul.heinzelmann@protonmail.com
-
-Project Link: [https://github.com/oph-design/fract-ol](https://github.com/oph-design/fract-ol)
+Ole-Paul Heinzelmann</br>
+ole.paul.heinzelmann@protonmail.com </br>
+<p></p>
+<a href="https://www.linkedin.com/in/ole-paul-heinzelmann-a08304258/">
+<img alt="linkedin shield" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" />
+</a></br> 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
