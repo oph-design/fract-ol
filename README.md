@@ -29,7 +29,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#examples">Usage</a></li>
+    <li><a href="#examples">Examples</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
